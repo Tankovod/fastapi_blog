@@ -12,6 +12,9 @@ services:
     environment:
       - DATABASE_URL=postgresql://blog:blog@postgres-db:5432/blog
       - DATABASE_ASYNC_URL=postgresql+asyncpg://blog:blog@postgres-db:5432/blog
+      - SECRET_KEY=supVop-key-secret
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=500
     logging:
       options:
         max-size: '25M'

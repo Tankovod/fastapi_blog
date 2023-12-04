@@ -120,7 +120,7 @@ venv.bak/
 /site
 
 # alembic
-/alembic/versions/
+/alembic/versions/*
 
 # mypy
 .mypy_cache/
