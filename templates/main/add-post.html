@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+
+{% include 'main/page-parts/menu.html'%}
+
+<div class="comment-form-wrap pt-5">
+  <h3 class="mb-5" style="margin-left: 5%;">Добавление нового поста</h3>
+  <form action="/add-post" class="p-5 bg-light" method="POST">
+    <div class="form-group">
+      <label for="title">Заголовок *</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+    <div class="form-group">
+      <label for="text">Текст *</label>
+      <textarea class="form-control" id="text" rows="20" name="text"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="short_description">Краткое содержание поста</label>
+      <input type="text" class="form-control" id="short_description" name="short_description">
+    </div>
+
+    <div class="form-group">
+      <input type="submit" value="Добавить пост" class="btn btn-primary">
+    </div>
+
+  </form>
+</div>
+
+{% include 'main/page-parts/footer.html'%}
+
+{% include 'main/page-parts/preloader.html'%}
+
+{% endblock %}

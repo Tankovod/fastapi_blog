@@ -1,0 +1,74 @@
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <div class="row g-0 align-items-center">
+                    <div class="col-2">
+                        <a href="index" class="logo m-0 float-start">Блог<span class="text-primary">#</span></a>
+                    </div>
+                    <div class="col-8 text-center">
+<!--                        <form action="#" class="search-form d-inline-block d-lg-none">-->
+<!--                            <input type="text" class="form-control" placeholder="Search...">-->
+<!--                            <span class="bi-search"></span>-->
+<!--                        </form>-->
+
+                        <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+                            <li><a href="/">Главная</a></li>
+                            <li class="has-children">
+<!--                                <a href="/articles">Статьи</a>-->
+<!--                                <ul class="dropdown">-->
+<!--                                    <li><a href="search-result">Search Result</a></li>-->
+<!--                                    <li><a href="blog">Blog</a></li>-->
+<!--                                    <li><a href="single">Blog Single</a></li>-->
+<!--                                    <li><a href="category">Category</a></li>-->
+<!--                                    <li><a href="/about">Об авторе</a></li>-->
+<!--                                    <li><a href="/contact">Как связаться</a></li>-->
+<!--                                    <li><a href="#">Menu One</a></li>-->
+<!--                                    <li><a href="#">Menu Two</a></li>-->
+<!--                                    <li class="has-children">-->
+<!--                                        <a href="#">Dropdown</a>-->
+<!--                                        <ul class="dropdown">-->
+<!--                                            <li><a href="#">Sub Menu One</a></li>-->
+<!--                                            <li><a href="#">Sub Menu Two</a></li>-->
+<!--                                            <li><a href="#">Sub Menu Three</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+                            </li>
+                            <li><a href="/posts">Все статьи</a></li>
+                            {% if user != 401 %}
+                                <li><a href="/add-post">Добавить статью</a></li>
+                                <li><a href="/profile" style="width: 70%;">
+                                    <img width="11%" height="11%" src="{{url_for('media', path=user.profile_photo) if user.profile_photo else url_for('media', path='images/blob.svg')}}" alt="Image" class="img-fluid"> Мой профиль</a></li>
+                                <li><a href="#" id="logout">Выйти</a></li>
+                            {% else %}
+                                <li><a href="/login">Войти</a></li>
+                            {% endif %}
+<!--                            <li><a href="/about">Об авторе</a></li>-->
+<!--                            <li><a href="/contact">Как связаться</a></li>-->
+<!--                            <li><a href="category">Politics</a></li>-->
+                        </ul>
+                    </div>
+                    <div class="col-2 text-end">
+                        <a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+                            <span></span>
+                        </a>
+<!--                        <form action="#" class="search-form d-none d-lg-inline-block">-->
+<!--                            <input type="text" class="form-control" placeholder="Search...">-->
+<!--                            <span class="bi-search"></span>-->
+<!--                        </form>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

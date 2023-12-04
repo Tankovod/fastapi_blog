@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+
+{% include 'main/page-parts/menu.html'%}
+
+	<!-- Start retroy layout blog posts -->
+	<section class="section bg-light">
+		<div class="container">
+			<div class="row align-items-stretch retro-layout">
+				{% for post in posts %}
+				<div class="row-md-4">
+					<a href="/post/{{post.slug}}" class="h-entry mb-30 v-height gradient">
+
+						<div class="featured-img" style="background-image: url('{{url_for('media', path=post.image) if post.image else url_for('media', path='images/hero_1.jpg')}}');"></div>
+
+						<div class="text">
+							<span class="date">{{ post.date_creation.date() }}</span>
+							<h2>{{post.title}}</h2>
+							{% if post.short_description %}
+								<h6 style="color: #CBDFF3;">{{post.short_description}}</h6>
+							{% endif %}
+						</div>
+					</a>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+
+{% include 'main/page-parts/footer.html'%}
+
+{% include 'main/page-parts/preloader.html'%}
+
+{% endblock %}
