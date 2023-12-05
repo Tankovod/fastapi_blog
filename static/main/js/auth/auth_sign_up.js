@@ -5,16 +5,30 @@ function saveToken(data){  // сохранение токена
     document.cookie=`access_token=${data.access_token}; path=/;`
 }
 
-function handleUserCredentials(data) {  // Проверка введенных данных
+
+function handleUserCredentials(data, id_to_red="") {  // Проверка введенных данных
     if (data.token){
         saveToken(data.token)
         window.location.replace('/')
     } else {
-        console.log(data.message)
-        Data = new Date()
-        var hours_now = Data.getHours();
-        var minutes_now = Data.getMinutes();
-        $("body").append(`<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5"><div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">   <div class="toast-header"> <strong class="me-auto">Bootstrap</strong>  <small>${hours_now + ':' + minutes_now}</small> <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>   </div>  <div class="toast-body" style="color: red">${data.message}</div> </div> </div>`)
+        //Data = new Date()
+        //var hours_now = Data.getHours();
+        //var minutes_now = Data.getMinutes();
+            // Get the snackbar DIV
+        var x = document.getElementById("snackbar");
+
+        if (id_to_red){
+            var field_to_red = document.getElementById("_" + id_to_red);
+            field_to_red.style.borderColor = "red";
+        }
+
+        // Add the "show" class to DIV
+        x.className = "show";
+        x.textContent = data;
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        //$("body").append(`<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5"><div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">   <div class="toast-header"> <strong class="me-auto">Будьте внимательнее</strong>  <small>${hours_now + ':' + minutes_now}</small> <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>   </div>  <div class="toast-body" style="color: red">${data}</div> </div> </div>`)
 
     }
 }
@@ -46,7 +60,10 @@ function sendLoginData(e) {  // Отправка формы авторизаци
                 'password': password
             }),
             success: handleUserCredentials,
-            error: (x) => console.log(`Error: ${x}`),
+            error: function (error) {
+                handleUserCredentials(error.responseJSON.detail)
+                console.log(error.responseJSON.detail);
+            },
 
         }
     )
@@ -94,12 +111,17 @@ function handleUserData(data) {  // Сохранение токена и ред�
 
 function sendRegistrationData(e) {  // Отправка формы регистрации
     e.preventDefault()
+      let border = document.querySelectorAll('input');
+      for( let i = 0; i < border.length; i++ ){
+         border[i].style.borderColor = "#CACACA";
+      }
+
     //var phone = document.getElementById('country_code').value + document.getElementById('phone').value;
     var password = document.getElementById('_password').value
     var first_name = document.getElementById('_first_name').value;
     var last_name = document.getElementById('_last_name').value
     var email = document.getElementById('_email').value;
-    console.log(email + first_name + last_name + password)
+    //console.log(email + first_name + last_name + password)
     $.ajax(
         {
             url: BASE_URL + '/api/v1/registration',
@@ -114,11 +136,14 @@ function sendRegistrationData(e) {  // Отправка формы регист�
                 'email': email
             }),
             success: handleUserData,
-            error: (x) => console.log(`ERROR: ${x}`),
+            error: function (error) {
+                handleUserCredentials(error.responseJSON.detail[0].msg, error.responseJSON.detail[0].loc[1])
+                }
 
         }
     )
 }
+
 
 $('#sign_up').on('click', sendRegistrationData)
 $('#sign_in').on('click', sendLoginData)

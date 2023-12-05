@@ -6,7 +6,7 @@ from sqladmin import Admin
 from src.api.router import router as api_router
 from src.auth.endpoints import router as auth_router
 from src.blog.endpoints import router as views_router
-from src.database.admin import SiteUserAdmin, PostAdmin, CommentAdmin  # , AdminAuth
+from src.database.admin import SiteUserAdmin, PostAdmin, CommentAdmin, CategoryAdmin  # , AdminAuth
 from src.database.base import Base
 
 app = FastAPI()
@@ -27,5 +27,6 @@ admin = Admin(app=app, engine=Base.engine)
 admin.add_view(SiteUserAdmin)
 admin.add_view(CommentAdmin)
 admin.add_view(PostAdmin)
+admin.add_view(CategoryAdmin)
 # admin.add_view(AdminAuth)
 

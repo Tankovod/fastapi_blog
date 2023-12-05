@@ -18,6 +18,7 @@ class PostModel(BaseModel):
     text: str = Field(default=...)
     date_creation: Optional[datetime] = Field(default=datetime.now())
     short_description: str
+    category_id: PositiveInt
 
     @model_validator(mode="after")
     def make_a_slug(self):

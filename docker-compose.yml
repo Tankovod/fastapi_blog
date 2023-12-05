@@ -3,7 +3,6 @@ version: "3.8"
 services:
 
   app:
-    restart: always
     build: .
     command: sh -c "alembic revision --autogenerate && alembic upgrade head && uvicorn app:app --reload --host 0.0.0.0"
     container_name: fastapi-app
@@ -23,11 +22,12 @@ services:
       - postgres
     volumes:
       - .:/app
+    restart: always
 
   postgres:
     image: postgres:15-alpine3.18
     container_name: postgres-db
-    hostname: postgres
+    #hostname: postgres
     environment:
       - POSTGRES_PASSWORD=blog
       - POSTGRES_USER=blog

@@ -17,5 +17,5 @@ function logOut() {
     deleteAllCookies()
     window.location.replace('/login')
 }
-document.console("123412341234")
+
 $('#logout').on('click', logOut)

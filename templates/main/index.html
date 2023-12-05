@@ -12,7 +12,7 @@
 			<div class="row align-items-stretch retro-layout">
 				{% for post in posts %}
 				<div class="row-md-4">
-					<a href="/post/{{post.slug}}" class="h-entry mb-30 v-height gradient">
+					<a href="/posts/{{post.category.slug}}/{{post.slug}}" class="h-entry mb-30 v-height gradient">
 
 						<div class="featured-img" style="background-image: url('{{url_for('media', path=post.image) if post.image else url_for('media', path='images/hero_1.jpg')}}');"></div>
 

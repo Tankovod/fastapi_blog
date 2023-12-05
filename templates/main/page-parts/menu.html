@@ -24,9 +24,11 @@
                         <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
                             <li><a href="/">Главная</a></li>
                             <li class="has-children">
-<!--                                <a href="/articles">Статьи</a>-->
-<!--                                <ul class="dropdown">-->
-<!--                                    <li><a href="search-result">Search Result</a></li>-->
+                                <a href="/posts">Категории</a>
+                                <ul class="dropdown">
+                                    {% for category in categories %}
+                                        <li><a href="/posts/{{category.slug}}">{{category.name}}</a></li>
+                                    {% endfor %}
 <!--                                    <li><a href="blog">Blog</a></li>-->
 <!--                                    <li><a href="single">Blog Single</a></li>-->
 <!--                                    <li><a href="category">Category</a></li>-->
@@ -42,9 +44,9 @@
 <!--                                            <li><a href="#">Sub Menu Three</a></li>-->
 <!--                                        </ul>-->
 <!--                                    </li>-->
-<!--                                </ul>-->
+                                </ul>
                             </li>
-                            <li><a href="/posts">Все статьи</a></li>
+                            <li><a href="/about">О нас</a></li>
                             {% if user != 401 %}
                                 <li><a href="/add-post">Добавить статью</a></li>
                                 <li><a href="/profile" style="width: 70%;">

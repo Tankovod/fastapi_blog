@@ -31,7 +31,7 @@ async def sign_up(form: User) -> ORJSONResponse:
             session.commit()
 
     except sqlalchemy.exc.IntegrityError:
-        message = 'Email or telephone number are already exist'
+        message = 'Пользователь с таким Email уже существует'
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=message)
 
     else:
@@ -59,7 +59,7 @@ async def sign_in(form: LoginData) -> ORJSONResponse:
                                           expires_delta=timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))
         return ORJSONResponse(content={'token': token}, status_code=status.HTTP_200_OK)
     else:
-        raise HTTPException(detail='Wrong phone or (and) password', status_code=status.HTTP_400_BAD_REQUEST)
+        raise HTTPException(detail='Неверный email и (или) пароль', status_code=status.HTTP_400_BAD_REQUEST)
 
 
 @router.post(path="/token", status_code=status.HTTP_200_OK, name="token validation")

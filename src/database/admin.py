@@ -1,7 +1,7 @@
 from sqladmin import ModelView
 from sqladmin.authentication import AuthenticationBackend
 from fastapi import Request
-from src.database.models import Post, SiteUser, Comment
+from src.database.models import Post, SiteUser, Comment, Category
 
 
 class PostAdmin(ModelView, model=Post):
@@ -15,6 +15,9 @@ class SiteUserAdmin(ModelView, model=SiteUser):
 class CommentAdmin(ModelView, model=Comment):
     column_list = ["name", "email"]
 
+
+class CategoryAdmin(ModelView, model=Category):
+    column_list = ["name", "slug"]
 
 # class AdminAuth(AuthenticationBackend):
 #     async def login(self, request: Request) -> bool:
