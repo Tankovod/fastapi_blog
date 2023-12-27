@@ -1,5 +1,6 @@
 from typing import Any
 
+from jinja2 import pass_context
 from starlette.requests import Request
 from fastapi.templating import Jinja2Templates
 from fastapi_login import LoginManager
@@ -12,6 +13,7 @@ from src.validation.settings import settings
 templates = Jinja2Templates(directory="templates")
 
 
+@pass_context
 def https_url_for(context: dict, name: str, **path_params: Any) -> str:
 
     request = context["request"]
