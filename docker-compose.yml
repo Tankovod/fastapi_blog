@@ -7,7 +7,7 @@ services:
     command: sh -c "alembic revision --autogenerate && alembic upgrade head && gunicorn app:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 "
     container_name: fastapi-app
     ports:
-      - '80:8000'
+      - '8010:8000'
     environment:
       - DB_URL=postgresql://blog:blog@postgres-db:5432/blog
       - DB_ASYNC_URL=postgresql+asyncpg://blog:blog@postgres-db:5432/blog
