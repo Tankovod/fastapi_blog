@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
@@ -31,6 +32,7 @@ app.add_middleware(CORSMiddleware,
                       'allow_headers': ('*',), 'allow_credentials': True})
 app.add_middleware(ProxyHeadersMiddleware,
                    trusted_hosts=("*", ))
+app.add_middleware(HTTPSRedirectMiddleware)
 
 app.include_router(views_router)
 app.include_router(auth_router)
