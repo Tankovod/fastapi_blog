@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:80'
+const BASE_URL = 'https://belcv.ru'
 const login_url = BASE_URL + '/auth/login'
 
 
