@@ -1,4 +1,6 @@
-from fastapi import Path
+from typing import Any
+
+from starlette.requests import Request
 from fastapi.templating import Jinja2Templates
 from fastapi_login import LoginManager
 from fastapi_pagination.links import Page
@@ -6,7 +8,17 @@ from fastapi import Query
 from passlib.context import CryptContext
 from src.validation.settings import settings
 
+
 templates = Jinja2Templates(directory="templates")
+
+
+def https_url_for(context: dict, name: str, **path_params: Any) -> str:
+
+    request = context["request"]
+    return request.url_for(name, **path_params).replace("http", "https", 1)
+
+
+templates.env.globals["url_for"] = https_url_for
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
