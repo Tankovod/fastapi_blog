@@ -1,5 +1,7 @@
 from typing import Union
 
+from fastapi_cache import JsonCoder
+from fastapi_cache.decorator import cache
 from fastapi import Request, status, Form, HTTPException, Path
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
@@ -12,6 +14,7 @@ from .router import router
 from fastapi_pagination.ext.sqlalchemy import paginate
 from src.settings import Page
 from ..validation.user_validators import UserView
+from src.utils.cached import get_last_posts
 
 
 @router.get(path="/posts", status_code=status.HTTP_200_OK, response_model=Page[Post])
@@ -27,11 +30,14 @@ async def get_posts(request: Request,
 
 
 @router.get(path="/", status_code=200)
-async def index(request: Request, user: Union[UserView, int] = is_user_authorized):
-    with Post.session() as session:
-        posts = session.scalars(select(Post).order_by(Post.date_creation).limit(5)).all()
-        return templates.TemplateResponse("main/index.html",
-                                      context={"request": request, "posts": posts, "user": user})
+async def index(request: Request,
+                user: Union[UserView, int] = is_user_authorized,
+                categories: list[Category] = get_categories):
+    posts = await get_last_posts(number_of_posts=5)
+    # with Post.session() as session:
+    #     posts = session.scalars(select(Post).order_by(Post.date_creation).limit(5)).all()
+    return templates.TemplateResponse("main/index.html",
+                                      context={"request": request, "posts": posts, "user": user, "categories": categories})
 
 
 @router.get(path="/posts/{category}/{slug}", status_code=status.HTTP_200_OK)

@@ -18,7 +18,7 @@ from .router import router
              name="New user sign up")
 async def sign_up(form: User) -> ORJSONResponse:
     """
-    Create new user in db and get new access token
+    Create new user   in db and get new access token
 
     :param form: registration user form
     :return: JSON response with user's form and new generated token or exception

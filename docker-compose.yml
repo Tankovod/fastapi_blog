@@ -4,7 +4,7 @@ services:
 
   app:
     build: .
-    command: sh -c "alembic revision --autogenerate && alembic upgrade head && uvicorn app:app --reload --host 0.0.0.0"
+    command: sh -c "alembic revision --autogenerate && alembic upgrade head && gunicorn app:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 "
     container_name: fastapi-app
     ports:
       - '80:8000'
@@ -34,3 +34,8 @@ services:
       - POSTGRES_DB=blog
       - POSTGRES_HOST_AUTH_METHOD=trust
     restart: always
+
+  redis:
+    image: redis:7.0.4-alpine
+    container_name: redis-cache
+    hostname: redis
