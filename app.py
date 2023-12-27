@@ -24,10 +24,10 @@ async def startup():
     redis = aioredis.from_url(settings.REDIS_URL.unicode_string(), encoding="utf8", decode_responses=True)
     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
 
-app.add_middleware(CORSMiddleware,
+app.add_middleware(middleware_class=CORSMiddleware,
                    **{'allow_methods': ('*',), 'allow_origins': ('*',),
                       'allow_headers': ('*',), 'allow_credentials': True})
-app.add_middleware(ProxyHeadersMiddleware,
+app.add_middleware(middleware_class=ProxyHeadersMiddleware,
                    trusted_hosts=("*", ))
 
 app.mount("/static", StaticFiles(directory="static/main"), name="static")
