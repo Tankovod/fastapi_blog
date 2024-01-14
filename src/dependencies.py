@@ -3,7 +3,7 @@ from typing import Union
 from fastapi import Depends, Path, status, HTTPException, Cookie, Request
 from fastapi_cache.decorator import cache
 from sqlalchemy import select, func
-from sqlalchemy.orm import joinedload, selectinload
+from sqlalchemy.orm import joinedload, selectinload, load_only
 from sqlalchemy.sql.functions import count
 
 from src.database.models import Post, Base, Category
@@ -41,7 +41,9 @@ async def _is_user_authorized(request: Request) -> Union[None, UserView]:  # д�
 @cache(600)
 async def _get_categories() -> list[Category]:
     with Category.session() as session:
-        return session.scalars(select(Category).options(selectinload(Category.posts))).all()
+        return session.scalars(select(Category)
+                               .options(selectinload(Category.posts)
+                                        .options(load_only(Post.id)))).all()  # load_only = выбираем определенные столбцы
 
 
 get_post_info = Depends(_get_post_info)
