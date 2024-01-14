@@ -17,7 +17,7 @@
 						<div class="featured-img" style="background-image: url('{{url_for('media', path=post.image) if post.image else url_for('media', path='images/hero_1.jpg')}}');"></div>
 
 						<div class="text">
-							<span class="date">{{ post.date_creation.date() }}</span>
+							<span class="date">{{ post.date_creation }}</span>
 							<h2>{{post.title}}</h2>
 							{% if post.short_description %}
 								<h6 style="color: #CBDFF3;">{{post.short_description}}</h6>
