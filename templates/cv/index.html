@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Дмитрий Белоусов - Resume</title>
+  <link href="{{ url_for('cv-static',  path='css/bootstrap.min.css') }}" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Source Sans Pro";
+    }
+
+    h3 {
+      margin-top: 0.5em;
+    }
+
+    h4 {
+      margin-top: 1.1em;
+    }
+
+    .footer,
+    section {
+      border-top: 1px solid #eee;
+      padding: 1em 0;
+    }
+
+    section p {
+      margin: 0.8em 0 0.4em 0;
+    }
+
+    section p.sticky {
+      margin: 0;
+    }
+
+    section ul {
+      margin-top: 1em;
+    }
+
+    img.photo {
+      width: 100px;
+      height: auto;
+      margin: 20px 0;
+    }
+
+    .contacts dt {
+      width: 60px;
+      text-align: left
+    }
+
+    .contacts dd {
+      margin-left: 65px;
+    }
+
+    .item {
+      border-bottom: 1px solid #eee;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    header.main h3 {
+      margin-top: 0.3em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <header class="main row">
+          <div class="header">
+            <div class="col-md-6 col-sm-12">
+              <h1>Дмитрий Белоусов</h1>
+              <h3>Python Web Developer</h3>
+            </div>
+
+
+            <div class="col-md-6 col-sm-12">
+              <img class="photo img-responsive img-circle pull-right" src="https://cdn-edge.kwork.ru/files/avatar/medium_r/26/15314107-2.jpg">
+            </div>
+          </div>
+
+          <div class="">
+            <div class="col-md-6 col-sm-12">
+              <dl class="contacts dl-horizontal">
+
+                <dt>Address:</dt>
+                <dd>Minsk, Belarus</dd>
+
+                <dt>Phone:</dt>
+                <dd>375292466147</dd>
+
+                <dt>Email:</dt>
+                <dd>
+                  <a href="mailto:Wotdimas@gmail.com">
+                        Wotdimas@gmail.com
+                    </a>
+                </dd>
+
+                <dt>Website:</dt>
+                <dd>
+                  <a href="https://belcv.ru">
+                      https://belcv.ru
+                    </a>
+                </dd>
+
+              </dl>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+              <ul class="networks list-inline text-right">
+                
+                <li>
+                  <a href="https://github.com/Tankovod">
+                            Tankovod @ github
+                        </a>
+                </li>
+                
+                <li>
+                  <a href="https://www.linkedin.com/in/dmitry-undefined-4a6a91277/">
+                            dmitry @ linkedin
+                        </a>
+                </li>
+                
+                <li>
+                  <a href="https://t.me/Frog_danger">
+                            Frog_danger @ telegram
+                        </a>
+                </li>
+                
+                <li>
+                  <a href="https://kwork.ru/user/profwebdeveloper">
+                            ProfWebDeveloper @ kwork
+                        </a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        
+        <section class="row">
+          <header class="col-md-3">
+            <h3>About</h3>
+          </header>
+          <div class="col-md-9">
+            <h3></h3> Python web developer focused on performant web systems. Skilled Python programmer. More than 3 years of professional web development.
+          </div>
+        </section>
+         
+        <section class="row skills">
+          <header class="col-md-3">
+            <h3>Skills</h3>
+          </header>
+          <div class="col-md-9">
+            <div class="row skills">
+
+              
+              <div class="col-md-6">
+                <h4>Programming</h4>
+                <ul>
+                  
+                  <li>Python, +3 years</li>
+                  
+                  <li>Javascript, +2 years</li>
+                  
+                  <li>CSS/HTML/HTML5, +3 years</li>
+                  
+                  <li>C#, +1 years</li>
+                  
+                  <li>Bash, intermediate, +1 year,</li>
+                  
+                </ul>
+              </div>
+              
+              <div class="col-md-6">
+                <h4>Technology</h4>
+                <ul>
+                  
+                  <li>Git</li>
+                  
+                  <li>PostgreSQL</li>
+                  
+                  <li>MySQL</li>
+                  
+                  <li>ElasticSearch</li>
+                  
+                  <li>Redis</li>
+                  
+                  <li>Memcached</li>
+                  
+                  <li>Docker</li>
+                  
+                </ul>
+              </div>
+              
+              <div class="col-md-6">
+                <h4>Languages</h4>
+                <ul>
+                  
+                  <li>Belarusian, Mother tongue</li>
+                  
+                  <li>English, Intermediate</li>
+                  
+                </ul>
+              </div>
+              
+
+            </div>
+          </div>
+        </section>
+           
+        <section class="row">
+          <header class="col-md-3">
+            <h3>Education</h3>
+          </header>
+          <div class="col-md-9">
+
+            
+            <div class="">
+              <h3>BNTU Belarusian National Technical University, Minsk, Belarus</h3>
+              <p class="sticky">2017 - 2022</p>
+              <p>Automation engineer</p>
+            </div>
+            
+          </div>
+        </section>
+         
+        <section class="row">
+          <header class="col-md-3">
+            <h3>Interests</h3>
+          </header>
+          <div class="col-md-9">
+
+            <ul>
+              
+              <li>General Computer Science</li>
+              
+              <li>Web scalability and performance</li>
+              
+              <li>Science</li>
+              
+              <li>Astronomy</li>
+              
+              <li>Swimming</li>
+              
+            </ul>
+          </div>
+        </section>
+        
+
+
+        <div class="footer ">
+          <p class="pull-right">
+            &copy;  Дмитрий Белоусов |
+            <a href="">Download PDF</a> |
+            <a href="#" onclick="javascript:window.print(); return false">Print</a> |
+            <a href="#">Top</a>
+          </p>
+          <p>
+            Source on <a href="https://github.com/Tankovod">github</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</body>
+
+</html>
