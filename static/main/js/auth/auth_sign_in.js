@@ -1,4 +1,6 @@
 const BASE_URL = 'https://belcv.ru'
+//const BASE_URL = 'http://127.0.0.1:8000'  // адрес для отправки запросов на api
+
 function saveToken(data){
 
     document.cookie=`access_token=${data.access_token}; path=/;`

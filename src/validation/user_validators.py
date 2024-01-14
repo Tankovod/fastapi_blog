@@ -11,8 +11,9 @@ class User(BaseModel):
     password: PasswordStr = Field(
         default=...,
         min_length=8,
-        max_length=64,
+        max_length=64
     )
+    about: str = Field(default="-", max_length=128)
     # disabled: bool = False
 
     class Config:

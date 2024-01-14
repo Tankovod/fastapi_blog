@@ -18,11 +18,11 @@
 
 					{% for post in posts.items %}
 					<div class="blog-entry d-flex blog-entry-search-item">
-						<a href="/post/{{post.slug}}" class="img-link me-4">
+						<a href="/posts/{{post.category.slug}}/{{post.slug}}" class="img-link me-4">
 							<img src="{{url_for('media', path=post.image) if post.image else url_for('media', path='images/hero_1.jpg')}}" alt="Image" class="img-fluid">
 						</a>
 						<div>
-							<span class="date">{{post.date_creation.date()}} &bullet; <a href="#">Business</a></span>
+							<span class="date">{{post.date_creation.date()}} &bullet; <a href="/posts/{{post.category.slug}}">{{post.category.name}}</a></span>
 							<h2><a href="/posts/{{post.category.slug}}/{{post.slug}}">{{post.title}}</a></h2>
 							{% if post.short_description %}
 								<p>{{post.short_description}}</p>
@@ -118,7 +118,7 @@
 						<h3 class="heading">Категории</h3>
 						<ul class="categories">
 						  {% for category in categories %}
-						  <li><a href="/posts/{{category.slug}}">{{category.name}} <span>(12)</span></a></li>
+						  <li><a href="/posts/{{category.slug}}">{{category.name}} <span>{{ category.posts|length }}</span></a></li>
 						  {% endfor %}
 						</ul>
 					  </div>

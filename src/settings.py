@@ -11,7 +11,7 @@ templates = Jinja2Templates(directory="templates")
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 Page = Page.with_custom_options(
-    size=Query(3, ge=1, le=300),
+    size=Query(5, ge=1, le=300),
 )
 
 manager = LoginManager(settings.SECRET_KEY.get_secret_value(), '/login')

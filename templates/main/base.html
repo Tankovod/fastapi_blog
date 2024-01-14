@@ -30,6 +30,9 @@
 	<title>{% block title %}{% endblock %}</title>
 </head>
 	<body>{% block content %}{% endblock %}
+
+	<div id="snackbar">Ошибка</div>
+
 	<script src="{{ url_for('static', path='js/auth/is_auth.js') }}"></script>
 	<script src="{{ url_for('static', path='js/bootstrap.bundle.min.js') }}"></script>
 
@@ -41,6 +44,7 @@
 	<script src="{{ url_for('static', path='js/navbar.js') }}"></script>
 	<script src="{{ url_for('static', path='js/counter.js') }}"></script>
 	<script src="{{ url_for('static', path='js/custom.js') }}"></script>
+	<script src="{{ url_for('static', path='js/blog.js') }}"></script>
 
 	</body>
 </html>

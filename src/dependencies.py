@@ -1,8 +1,11 @@
 from typing import Union
 
 from fastapi import Depends, Path, status, HTTPException, Cookie, Request
-from sqlalchemy import select
-from sqlalchemy.orm import joinedload
+from fastapi_cache.decorator import cache
+from sqlalchemy import select, func
+from sqlalchemy.orm import joinedload, selectinload
+from sqlalchemy.sql.functions import count
+
 from src.database.models import Post, Base, Category
 from src.utils.jwt_auth import token_check
 from src.validation.user_validators import UserView
@@ -35,9 +38,10 @@ async def _is_user_authorized(request: Request) -> Union[None, UserView]:  # Ð´Ð
     return await token_check(token=request.cookies.get('access_token'))
 
 
+@cache(600)
 async def _get_categories() -> list[Category]:
     with Category.session() as session:
-        return session.scalars(select(Category)).all()
+        return session.scalars(select(Category).options(selectinload(Category.posts))).all()
 
 
 get_post_info = Depends(_get_post_info)

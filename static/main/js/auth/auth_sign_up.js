@@ -1,4 +1,5 @@
 const BASE_URL = 'https://belcv.ru'  // адрес для отправки запросов на api
+//const BASE_URL = 'http://127.0.0.1:8000'  // адрес для отправки запросов на api
 
 function saveToken(data){  // сохранение токена
 
@@ -78,7 +79,7 @@ function handleTokenResponse(data){  // если пользователь авт
 }
 
 function isUserAuth () {  // Проверка авторизован ли пользователь
-    console.log(document.cookie)
+//    console.log(document.cookie)
     if (document.cookie.includes("access_token")) {
         $.ajax(
             {
@@ -103,7 +104,7 @@ function saveToken(data){  // Енпосредственно само сохра
 }
 
 function handleUserData(data) {  // Сохранение токена и редирект
-    console.log(`${data.message}`)
+//    console.log(`${data.message}`)
         saveToken(data.token)
         window.location.replace('/')
 }

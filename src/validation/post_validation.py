@@ -20,9 +20,9 @@ class PostModel(BaseModel):
     short_description: str
     category_id: PositiveInt
 
-    @model_validator(mode="after")
-    def make_a_slug(self):
-        self.slug = slugify(self.title)
+    # @model_validator(mode="after")
+    # def make_a_slug(self):
+    #     self.slug = slugify(self.title)
 
 
 class PostDbModel(PostModel, GenModel):

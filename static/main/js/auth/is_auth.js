@@ -1,4 +1,5 @@
 const BASE_URL = 'https://belcv.ru'
+//const BASE_URL = 'http://127.0.0.1:8000'  // адрес для отправки запросов на api
 const login_url = BASE_URL + '/auth/login'
 
 
