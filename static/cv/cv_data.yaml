@@ -1,11 +1,17 @@
 profile:
-    name: Дмитрий Белоусов
+    name: Dmitry Belousov
     label: Python Web Developer
     email: Wotdimas@gmail.com
-    phone: +375292466147
+    phone: +375 (29) 246-61-47
     years: 24
     address: Minsk, Belarus
+    addressLine1: Kalinouskaha st.
+    addressLine2: Minsk
+    addressLine3: Belarus
     summary: >
+        Python web developer focused on performant web systems. Skilled Python programmer.
+        More than 3 years of professional web development.
+    objective: >
         Python web developer focused on performant web systems. Skilled Python programmer.
         More than 3 years of professional web development.
 
@@ -25,15 +31,15 @@ profile:
            username: Frog_danger
            url: https://t.me/Frog_danger
 
-        -  provider: kwork
-           username: ProfWebDeveloper
-           url: https://kwork.ru/user/profwebdeveloper
+#        -  provider: kwork
+#           username: ProfWebDeveloper
+#           url: https://kwork.ru/user/profwebdeveloper
 
 
 skills:
     -   area: Programming
         skills:
-            - Python, +3 years
+            - Python, +4 years
             - Javascript, +3 years
             - CSS/HTML/HTML5, +3 years
             - C#, +1 years
@@ -102,6 +108,10 @@ education:
     -   location: BNTU Belarusian National Technical University, Minsk, Belarus
         date: 2017 - 2022
         summary: Automation engineer
+        gpa: 6.9
+        highlights:
+            - Software development for automating the scheduling of classes
+            - Development of a web version of a software and methodological complex for academic disciplines
 
 
 interests:
@@ -114,6 +124,6 @@ interests:
 
 
 config:
-    theme: simple
+    theme: compact
     github_source: https://github.com/Tankovod
-    pdf_file: dmitry-belousov-cv.pdf
+    pdf_file: Dmitry Belousov - Resume.pdf

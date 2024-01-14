@@ -14,9 +14,9 @@ async def dmitry_cv(request: Request):
 
 
 @router.get(
-    "/dmitry-belousov-cv.pdf",
+    "/Dmitry Belousov - Resume.pdf",
     status_code=status.HTTP_200_OK,
     name="Резюме Дмитрия Pdf"
 )
 async def dmitry_cv_pdf(request: Request):
-    return FileResponse("static/cv/dmitry-belousov-cv.pdf", media_type="application/pdf", headers=request.headers)
+    return FileResponse("static/cv/Dmitry Belousov - Resume.pdf", media_type="application/pdf", headers=request.headers)
