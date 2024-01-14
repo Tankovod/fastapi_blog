@@ -1,0 +1,109 @@
+profile:
+    name: Дмитрий Белоусов
+    label: Python Web Developer
+    email: Wotdimas@gmail.com
+    phone: +375292466147
+    years: 24
+    address: Minsk, Belarus
+    summary: >
+        Python web developer focused on performant web systems. Skilled Python programmer.
+        More than 3 years of professional web development.
+
+    image: "https://cdn-edge.kwork.ru/files/avatar/medium_r/26/15314107-2.jpg"
+    website: https://belcv.ru
+
+    networks:
+        -   provider: github
+            username: Tankovod
+            url: https://github.com/Tankovod
+
+        -  provider: linkedin
+           username: dmitry
+           url: https://www.linkedin.com/in/dmitry-undefined-4a6a91277/
+
+        -  provider: telegram
+           username: Frog_danger
+           url: https://t.me/Frog_danger
+
+        -  provider: kwork
+           username: ProfWebDeveloper
+           url: https://kwork.ru/user/profwebdeveloper
+
+
+skills:
+    -   area: Programming
+        skills:
+            - Python, +3 years
+            - Javascript, +2 years
+            - CSS/HTML/HTML5, +3 years
+            - C#, +1 years
+            - Bash, intermediate, +1 year,
+
+    -   area: Technology
+        skills:
+            - Git
+            - PostgreSQL
+            - MySQL
+            - ElasticSearch
+            - Redis
+            - Memcached
+            - Docker
+
+    -   area: Languages
+        skills:
+            - Belarusian, Mother tongue
+            - English, Intermediate
+
+#projects:
+#
+#    -   name: BetaFrontpage
+#        role: Frontend and backend developer
+#        website: http://www.betafrontpage.com
+#        date: 08.2014
+#        summary: BetaFrontpage lists startups frontpages. Full screenshots for
+#            inspiration and product discovery.
+#        highlights:
+#            - "[Pyramid web framework](http://www.pylonsproject.org/)."
+#            - "[Docker](https://docker.com/) for screenshot grabbing service."
+#
+#    -   name: Wwwino.pl
+#        role: Developed web spider and search engine. Frontend and backend developement.
+#
+#        website: http://wwwino.pl
+#        date: 2014 - Present
+#        summary: Wine search engine and price comparator for Polish wine consumers.
+#        highlights:
+#            - "[Pyramid web framework](http://www.pylonsproject.org/)."
+#            - ElasticSearch.
+#            - Web scrapping.
+#
+#    -   name: Piwwwo.pl
+#        role: Frontend and backend developer
+#        website: http://piwwwo.pl
+#        date: 08-2014
+#        summary: Piwwwo.pl is a beer journal and brewery database.
+#        highlights:
+#            - "[Pyramid web framework](http://www.pylonsproject.org/)."
+#            - SQLAlchemy ORM framework.
+#            - PostgreSQL database.
+
+
+education:
+    -   location: BNTU Belarusian National Technical University, Minsk, Belarus
+        date: 2017 - 2022
+        summary: Automation engineer
+
+
+interests:
+    - General Computer Science
+    - Web scalability and performance
+    - Science
+    - Astronomy
+    - Swimming
+
+
+
+config:
+    theme: simple
+    github_source: https://github.com/Tankovod
+    pdf_file: dmitry-belousov-cv.pdf

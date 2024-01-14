@@ -9,4 +9,13 @@ from fastapi import Request, status
     name="Резюме Дмитрия"
 )
 async def dmitry_cv(request: Request):
-    return templates.TemplateResponse(name="cv/dmitry.html", context={"request": request, "status": 200})
+    return templates.TemplateResponse(name="cv/index.html", context={"request": request, "status": 200})
+
+
+@router.get(
+    "dmitry-belousov-resume/",
+    status_code=status.HTTP_200_OK,
+    name="Резюме Дмитрия Pdf"
+)
+async def dmitry_cv(request: Request):
+    return templates.TemplateResponse(name="cv/dmitry-belousov-resume", context={"request": request, "status": 200})
