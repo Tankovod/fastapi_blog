@@ -17,9 +17,9 @@ profile:
             username: Tankovod
             url: https://github.com/Tankovod
 
-        -  provider: linkedin
-           username: dmitry
-           url: https://www.linkedin.com/in/dmitry-undefined-4a6a91277/
+#        -  provider: linkedin
+#           username: dmitry
+#           url: https://www.linkedin.com/in/dmitry-undefined-4a6a91277/
 
         -  provider: telegram
            username: Frog_danger
@@ -34,10 +34,10 @@ skills:
     -   area: Programming
         skills:
             - Python, +3 years
-            - Javascript, +2 years
+            - Javascript, +3 years
             - CSS/HTML/HTML5, +3 years
             - C#, +1 years
-            - Bash, intermediate, +1 year,
+            - Bash, +1 year,
 
     -   area: Technology
         skills:
@@ -48,6 +48,16 @@ skills:
             - Redis
             - Memcached
             - Docker
+
+    - area: Frameworks
+      skills:
+          - FastAPI, Flask, Django
+          - SQLAlchemy, Alembic
+          - Pydantic
+          - Celery
+          - Asyncio
+          - Pandas, Numpy
+          - Aiogram
 
     -   area: Languages
         skills:
