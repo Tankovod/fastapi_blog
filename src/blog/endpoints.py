@@ -1,24 +1,19 @@
 from typing import Union
 
-from fastapi import Request, status, Form, HTTPException, Path
-from fastapi_cache.decorator import cache
+from fastapi import Request, status, Path
 from fastapi_pagination.ext.sqlalchemy import paginate
 from sqlalchemy import select
-from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import defer
 
-from src.database.models import Post, Comment, Category
+from src.database.models import Post, Category
 from src.dependencies import get_post_info, get_db_session, user_auth, is_user_authorized, get_categories
 from src.settings import Page
 from src.settings import templates
 from src.utils.cached import get_last_posts, get_cached_categories
-from src.validation.comment_validation import CommentModel
-from src.validation.post_validation import PostModel
 from .router import router
 from ..validation.user_validators import UserView
 
 
-@cache(expire=600)
 @router.get(path="/posts", status_code=status.HTTP_200_OK, response_model=Page[Post])
 async def get_posts(request: Request,
                     db=get_db_session,
@@ -51,11 +46,12 @@ async def get_post_info(request: Request,
                         category: str = Path(...)):
     return templates.TemplateResponse("main/post.html",
                                       context={"request": request,
-                                               "post": post, "user": user,
-                                               "categories": categories, "category": category})
+                                               "post": post,
+                                               "user": user,
+                                               "categories": categories,
+                                               "category": category})
 
 
-@cache(expire=600)
 @router.get("/posts/{category}", status_code=status.HTTP_200_OK, response_model=Page[Post])
 async def get_category_posts(request: Request,
                              category: str = Path(...),

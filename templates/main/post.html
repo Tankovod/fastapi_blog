@@ -164,7 +164,7 @@
             <h3 class="heading">Категории</h3>
             <ul class="categories">
               {% for category in categories %}
-              <li><a href="/posts/{{category.slug}}">{{category.name}} <span>(12)</span></a></li>
+              <li><a href="/posts/{{category.slug}}">{{category.name}} <span>{{ category.posts|length }}</span></a></li>
               {% endfor %}
             </ul>
           </div>
