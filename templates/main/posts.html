@@ -16,7 +16,7 @@
 			<div class="row posts-entry">
 				<div class="col-lg-8">
 
-					{% for post in posts %}
+					{% for post in posts.items %}
 					<div class="blog-entry d-flex blog-entry-search-item">
 						<a href="/posts/{{post.category.slug}}/{{post.slug}}" class="img-link me-4">
 							<img src="{{url_for('media', path=post.image) if post.image else url_for('media', path='images/hero_1.jpg')}}" alt="Image" class="img-fluid">
